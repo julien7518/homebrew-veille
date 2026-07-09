@@ -2,7 +2,7 @@ import os
 import sqlite3
 from datetime import datetime
 
-DB_PATH = os.environ.get("DB_PATH", "/data/veille.db")
+DB_PATH = os.environ.get("DB_PATH", "DB/veille.db")
 
 
 def get_conn():

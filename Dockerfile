@@ -12,6 +12,6 @@ RUN uv sync --no-dev
 EXPOSE 8080
 
 ENV TZ=Europe/Paris
-ENV DB_PATH=/data/veille.db
+ENV DB_PATH=DB/veille.db
 
 CMD ["uv", "run", "main.py"]
