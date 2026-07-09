@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block content %}
+<div class="card">
+    <h2>Historique des exécutions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Statut</th>
+                <th>Paquets</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.id }}</td>
+                <td>{{ log.run_at[:19] | replace("T", " ") }}</td>
+                <td>
+                    <span class="badge {{ log.status }}">{{ log.status }}</span>
+                </td>
+                <td>{{ log.packages_count }}</td>
+                <td>{{ log.error_message or "" }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5" style="color: #9ca3af; text-align: center">
+                    Aucune exécution
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
